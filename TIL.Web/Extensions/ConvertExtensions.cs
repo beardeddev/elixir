@@ -18,5 +18,10 @@ namespace TIL.Extensions
             httpQueryString.Add(query);
             return httpQueryString.ToString();
         }
+
+        public static string ToQueryString(this object value)
+        {
+            return value.ToDictionary().ToNameValueCollection().ToQueryString();
+        }
     }
 }
