@@ -21,6 +21,6 @@ int pageIndex = Request.QueryString["page"].GetValueOrDefault<int>(); // Returns
 ```csharp
 using TIL.Extensions;
 ...
-var query = new { @page = 1, @limit = 2, @sort = "created_on" }
+var query = new { @page = 1, @limit = 2, @sort = "crated_on" }
 query.ToQueryString() // Produce string "page=1&limit=2&sort=created_on"
 ```
