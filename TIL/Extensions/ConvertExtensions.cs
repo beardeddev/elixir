@@ -63,11 +63,6 @@ namespace TIL.Extensions
             return collection;
         }
 
-        public static string ToQueryString(this object value)
-        {
-            return value.ToDictionary().ToNameValueCollection().ToQueryString();
-        }
-
         public static long IpToLong(this IPAddress ipAddress)
         {
             byte[] bytes = ipAddress.GetAddressBytes();

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B8055DD1-A7D3-4845-8F74-BC6FA5FC8835}</ProjectGuid>
+    <ProjectGuid>{1E7D96D9-ED1A-44E1-8721-395220D5C54C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TIL.Data.Entity</RootNamespace>
-    <AssemblyName>TIL.Data.Entity</AssemblyName>
+    <RootNamespace>TIL.Web.Mvc</RootNamespace>
+    <AssemblyName>TIL.Web.Mvc</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -33,7 +33,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,21 +44,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Filter.cs" />
-    <Compile Include="IFilter`.cs" />
-    <Compile Include="IRepository.cs" />
+    <Compile Include="Aspects\MvcPageAttribute.cs" />
+    <Compile Include="Components\Flash.cs" />
+    <Compile Include="ControllerBase.cs" />
+    <Compile Include="Html\StringExtensions.cs" />
+    <Compile Include="Html\TagBuilderExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\MvcPage.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TIL.Data\TIL.Data.csproj">
-      <Project>{E70726B2-CAD8-4515-9748-875276E76009}</Project>
-      <Name>TIL.Data</Name>
+    <ProjectReference Include="..\TIL.Web\TIL.Web.csproj">
+      <Project>{56411F46-3D3E-488B-8F5D-CE0828A75261}</Project>
+      <Name>TIL.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\TIL\TIL.csproj">
       <Project>{F54AB8FA-A2A3-43FC-8237-6902A0811DAB}</Project>
       <Name>TIL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
