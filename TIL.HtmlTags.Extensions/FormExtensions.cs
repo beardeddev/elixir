@@ -12,8 +12,7 @@ namespace TIL.Web.Mvc.Html
 
     public static class FormExtensions
     {
-        public static MvcForm FormFor<TModel, TKey>(this HtmlHelper<TModel> htmlHelper, TModel model)
-            where TModel : IEntity<TKey>
+        public static MvcForm BeginFormFor<TKey>(this HtmlHelper htmlHelper, IEntity<TKey> model)
         {
             RouteValueDictionary routeValues = htmlHelper.ViewContext.RequestContext.RouteData.Values;
             string action = routeValues["action"].ToString().ToLower() == "new" ? "create" : "update";

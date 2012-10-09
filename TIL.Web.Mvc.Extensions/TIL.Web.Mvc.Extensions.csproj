@@ -66,8 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControllerBase.cs" />
-    <Compile Include="Html\FormExtensions.cs" />
-    <Compile Include="Html\InputExtensions.cs" />
     <Compile Include="ModelBinders\EntityModelBinder.cs" />
     <Compile Include="ModelBinders\FilterModelBinder.cs" />
     <Compile Include="ModelBinders\MunqModelBinder.cs" />
@@ -98,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Enviroment\" />
+    <Folder Include="Html\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
