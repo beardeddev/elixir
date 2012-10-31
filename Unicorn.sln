@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unicorn", "Unicorn\Unicorn.csproj", "{D381E167-9C42-4E2B-B98B-D2095C594CA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unicorn.Data", "Unicorn.Data\Unicorn.Data.csproj", "{C41BB03B-45F5-48CC-BBA8-3A064225719B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unicorn.Web.Mvc", "Unicorn.Web.Mvc\Unicorn.Web.Mvc.csproj", "{1FB70B50-5DB7-418B-8EAE-C80E7BC010ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unicorn.Data.Entity", "Unicorn.Data.Entity\Unicorn.Data.Entity.csproj", "{CCBCDFBB-B922-4A44-9394-DA809E608658}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unicorn.Web.Mvc.Host", "Unicorn.Web.Mvc.Host\Unicorn.Web.Mvc.Host.csproj", "{A9761AD1-F1D3-466C-8CA2-84F841E05C86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unicorn.Resources", "Unicorn.Resources\Unicorn.Resources.csproj", "{C196961B-54EB-4647-B980-80CF5529EF3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D381E167-9C42-4E2B-B98B-D2095C594CA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D381E167-9C42-4E2B-B98B-D2095C594CA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D381E167-9C42-4E2B-B98B-D2095C594CA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D381E167-9C42-4E2B-B98B-D2095C594CA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C41BB03B-45F5-48CC-BBA8-3A064225719B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C41BB03B-45F5-48CC-BBA8-3A064225719B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C41BB03B-45F5-48CC-BBA8-3A064225719B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C41BB03B-45F5-48CC-BBA8-3A064225719B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FB70B50-5DB7-418B-8EAE-C80E7BC010ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FB70B50-5DB7-418B-8EAE-C80E7BC010ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FB70B50-5DB7-418B-8EAE-C80E7BC010ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FB70B50-5DB7-418B-8EAE-C80E7BC010ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCBCDFBB-B922-4A44-9394-DA809E608658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCBCDFBB-B922-4A44-9394-DA809E608658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCBCDFBB-B922-4A44-9394-DA809E608658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCBCDFBB-B922-4A44-9394-DA809E608658}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9761AD1-F1D3-466C-8CA2-84F841E05C86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9761AD1-F1D3-466C-8CA2-84F841E05C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9761AD1-F1D3-466C-8CA2-84F841E05C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9761AD1-F1D3-466C-8CA2-84F841E05C86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C196961B-54EB-4647-B980-80CF5529EF3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C196961B-54EB-4647-B980-80CF5529EF3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C196961B-54EB-4647-B980-80CF5529EF3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C196961B-54EB-4647-B980-80CF5529EF3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
