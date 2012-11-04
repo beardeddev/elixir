@@ -11,9 +11,10 @@ namespace Unicorn.Web.Mvc.Html
 
     public static class LinkExtensions
     {
-        internal static MvcHtmlString ActionLink(this HtmlHelper htmlHelper, string actionName, string innerHtml, IDictionary<string, object> htmlAttributes)            
+        /*
+        public static MvcHtmlString ActionLink(this HtmlHelper htmlHelper,  IEntity model, string actionName, string innerHtml, IDictionary<string, object> htmlAttributes)            
         {
-            string linkHref = htmlHelper.Url().Action(actionName);
+            string linkHref = htmlHelper.Url().Action(actionName, new { @id = model.Id });
 
             TagBuilder actionLink = new TagBuilder("a");
             actionLink.MergeAttributes(htmlAttributes);
@@ -22,27 +23,24 @@ namespace Unicorn.Web.Mvc.Html
         }
 
         #region edit links
-        public static MvcHtmlString ActionLinkToEdit<TModel>(this HtmlHelper<TModel> htmlHelper, string innerHtml, IDictionary<string, object> htmlAttributes)
-            where TModel : IEntity
+        public static MvcHtmlString ActionLinkToEdit(this HtmlHelper htmlHelper, IEntity model, string innerHtml, IDictionary<string, object> htmlAttributes)            
         {
             string actionName = htmlHelper.Controller().RouteNames.EditName;
             htmlAttributes.Add("data-action", "edit");
-            return LinkExtensions.ActionLink(htmlHelper, actionName, innerHtml, htmlAttributes);
+            return LinkExtensions.ActionLink(htmlHelper, model, actionName, innerHtml, htmlAttributes);
         }
 
-        public static MvcHtmlString ActionLinkToEdit<TModel>(this HtmlHelper<TModel> htmlHelper, string innerHtml)
-            where TModel : IEntity
+        public static MvcHtmlString ActionLinkToEdit(this HtmlHelper htmlHelper, IEntity model, string innerHtml)
         {
-            return LinkExtensions.ActionLinkToEdit(htmlHelper, innerHtml, new Dictionary<string, object>());
+            return LinkExtensions.ActionLinkToEdit(htmlHelper, model, innerHtml, new Dictionary<string, object>());
         }
 
-        public static MvcHtmlString ActionLinkToSaveModel<TModel>(this HtmlHelper<TModel> htmlHelper, string innerHtml, object htmlAttributes)
-            where TModel : IEntity
+        public static MvcHtmlString ActionLinkToSaveModel(this HtmlHelper htmlHelper, IEntity model, string innerHtml, object htmlAttributes)
         {
-            return LinkExtensions.ActionLinkToEdit(htmlHelper, innerHtml, (IDictionary<string, object>)HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+            return LinkExtensions.ActionLinkToEdit(htmlHelper, model, innerHtml, (IDictionary<string, object>)HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         } 
         #endregion
-
+        /*
         #region show links
         public static MvcHtmlString ActionLinkToShow<TModel>(this HtmlHelper<TModel> htmlHelper, string innerHtml, IDictionary<string, object> htmlAttributes)
             where TModel : IEntity
@@ -123,6 +121,7 @@ namespace Unicorn.Web.Mvc.Html
         {
             return LinkExtensions.ActionLinkToList(htmlHelper, innerHtml, (IDictionary<string, object>)HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         } 
-        #endregion        
+        #endregion
+        */
     }
 }

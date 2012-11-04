@@ -8,6 +8,7 @@ using System.Resources;
 namespace Unicorn.Web.Mvc.ViewModels
 {
     using Unicorn.Web.Mvc.Extensions;
+    using Unicorn.Web.Mvc.Configuration;
 
     /// <summary>
     /// Contains methods and properties that describe the currently executing web page.
@@ -16,7 +17,7 @@ namespace Unicorn.Web.Mvc.ViewModels
     {
         private RequestContext requestContext;
         private ResourceManager resourceManager;
-
+        
         public string Area { get; set; }
         public string Controller { get; set; }
         public string Action { get; set; }
@@ -25,8 +26,33 @@ namespace Unicorn.Web.Mvc.ViewModels
         public string Description { get; set; }
         public string Keywords { get; set; }
 
+        public RouteNames RouteNames { get; private set; }
+
+        public bool IsCreateAction 
+        {
+            get
+            {
+                return string.Compare(this.Action, this.RouteNames.CreateName, true) == 0;
+            }
+        }
+
+        public bool IsNewAction 
+        {
+            get
+            {
+                return string.Compare(this.Action, this.RouteNames.NewName, true) == 0;
+            }
+        }
+
+        public RequestPageInfo(ResourceManager resourceManager, RequestContext requestContext, RouteNames routeNames)
+            : this(resourceManager, requestContext)
+        {
+
+        }
+
         public RequestPageInfo(ResourceManager resourceManager, RequestContext requestContext)
         {
+            this.RouteNames = new RouteNames();
             this.requestContext = requestContext;
             this.resourceManager = resourceManager;
             this.resourceManager.IgnoreCase = true;

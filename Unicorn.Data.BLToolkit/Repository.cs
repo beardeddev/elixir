@@ -2,84 +2,103 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data.Entity;
+using System.Data;
 
-namespace Unicorn.Data.Entity
+using BLToolkit.Data;
+using BLToolkit.Data.Linq;
+using BLToolkit.DataAccess;
+
+namespace Unicorn.Data.BLToolkit
 {
+    using Unicorn.Extensions;
     using Unicorn.Data.Contracts;
     using Unicorn.Data.Common;
-
+        
     public class Repository<TEntity, TKey> : IRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>, new()
     {
         private bool disposed = false;
-        private DbContext context;
+        private DbManager dbManager;
 
-        public Repository(IDbContextFactory factory)
+        public Repository(IDbManagerFactory factory)
         {
-            this.context = factory.GetDbContext();
-            this.context.Configuration.AutoDetectChangesEnabled = false;
+            this.dbManager = factory.GetDbManager();
         }
 
-        protected IDbSet<TEntity> DbSet
+        public Repository(IDbConnection connection)
+        {
+            this.dbManager = new DbManager(connection);
+        }
+
+        protected Table<TEntity> Table
         {
             get
             {
-                return this.context.Set<TEntity>();
+                return this.dbManager.GetTable<TEntity>();
+            }
+        }
+
+        protected SqlQuery<TEntity> Query
+        {
+            get
+            {
+                return new SqlQuery<TEntity>(this.dbManager);
             }
         }
 
         public TEntity GetById(TKey id)
         {
-            return this.DbSet.Find(id);
+            return this.Query.SelectByKey(id);
         }
 
         public List<TEntity> GetAll()
         {
-            return this.DbSet.ToList();
+            return this.Query.SelectAll();
         }
 
         public IPagedCollection<TEntity> GetPaged(IFilter<TEntity, TKey> filter)
         {
-            TEntity[] slice = this.DbSet.Where(filter.Where)
+            TEntity[] slice = this.Table.Where(filter.Where)
                 .OrderBy(filter.OrderBy)
                 .Skip((filter.PageIndex - 1) * filter.PageSize)
                 .Take(filter.PageSize).ToArray();
 
-            int totalCount = this.DbSet.Count(filter.Where);
+            int totalCount = this.Table.Count(filter.Where);
 
             return new PagedCollection<TEntity>(slice, filter.PageIndex, filter.PageSize, totalCount);
         }
 
         public TEntity Insert(TEntity entity)
         {
-            return this.DbSet.Add(entity);
+            TKey id = this.dbManager.InsertWithIdentity(entity).GetValue<TKey>();
+            return this.GetById(id);
         }
 
         public TEntity Update(TEntity entity)
         {
-            context.Entry<TEntity>(entity).State = System.Data.EntityState.Modified;
+            this.Query.Update(entity);
             return entity;
         }
 
         public TEntity Delete(TEntity entity)
         {
-            return this.DbSet.Remove(entity);
+            this.Query.Delete(entity);
+            return entity;
         }
 
         public void BeginTransaction()
         {
-            this.context.Configuration.AutoDetectChangesEnabled = true;
+            this.dbManager.BeginTransaction();
         }
 
         public void CommitTransaction()
         {
-            this.context.SaveChanges();
+            this.dbManager.CommitTransaction();
         }
 
         public void RollbackTransaction()
         {
-
+            this.dbManager.RollbackTransaction();
         }
 
         public void Dispose()
@@ -94,9 +113,9 @@ namespace Unicorn.Data.Entity
             {
                 if (disposing)
                 {
-                    if (this.context != null)
+                    if (this.dbManager != null)
                     {
-                        this.context.Dispose();
+                        this.dbManager.Dispose();
                     }
                 }
                 disposed = true;

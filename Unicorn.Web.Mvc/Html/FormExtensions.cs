@@ -26,7 +26,7 @@ namespace Unicorn.Web.Mvc.Html
         {
             UrlHelper url = new UrlHelper(htmlHelper.ViewContext.RequestContext);
             IApplicationController controller = (IApplicationController)htmlHelper.ViewContext.Controller;
-            string actionName = model.IsNew ? controller.RouteNames.CreateName : controller.RouteNames.EditName;
+            string actionName = model.IsNew ? controller.RouteNames.CreateName : controller.RouteNames.UpdateName;
             
             string formName = model.GetType().Name.ToLower();
             string formId = string.Format("{0}_{1}", actionName, formName);

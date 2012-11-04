@@ -29,7 +29,8 @@ namespace Unicorn.Web.Mvc.Extensions
                 throw new NullReferenceException("Resource type required  for translation is missing.");
             }
 
-            string value = resourceManager.GetString(key, Thread.CurrentThread.CurrentCulture);
+            
+            string value = resourceManager.GetString(key ?? string.Empty, Thread.CurrentThread.CurrentCulture);
 
             if (string.IsNullOrEmpty(value))
             {

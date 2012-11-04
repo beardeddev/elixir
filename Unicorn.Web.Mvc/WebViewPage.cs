@@ -9,6 +9,8 @@ namespace Unicorn.Web.Mvc
 {
     using Unicorn.Web.Mvc.Extensions;
     using Unicorn.Web.Mvc.ViewModels;
+    using Unicorn.Web.Mvc.Component;
+    using Unicorn.Data.Contracts;
 
     /// <summary>
     /// 
@@ -32,6 +34,14 @@ namespace Unicorn.Web.Mvc
         protected RequestPageInfo PageInfo { get; private set; }
 
         /// <summary>
+        /// Gets or sets the flash.
+        /// </summary>
+        /// <value>
+        /// The flash.
+        /// </value>
+        protected Flash Flash { get; set; }
+
+        /// <summary>
         /// Initializes the helpers.
         /// </summary>
         public override void InitHelpers()
@@ -39,7 +49,8 @@ namespace Unicorn.Web.Mvc
             base.InitHelpers();
             this.Controller = (ApplicationController)this.ViewContext.Controller;
             this.ResourceManager = Controller.ResourceManager;
-            this.PageInfo = this.ViewBag.PageContext as RequestPageInfo;
+            this.PageInfo = this.ViewBag.PageInfo as RequestPageInfo;
+            this.Flash = new Flash(this.TempData);
         }       
 
         /// <summary>
@@ -50,6 +61,36 @@ namespace Unicorn.Web.Mvc
         public MvcHtmlString _(string name)
         {
             return (MvcHtmlString)this.ResourceManager.GetHtmlString(name);
+        }
+
+        /// <summary>
+        /// Returns edit path for given model.
+        /// </summary>
+        /// <param name="entity">The entity.</param>
+        /// <returns></returns>
+        public string EditModelPath(IEntity entity)            
+        {
+            return Url.Action(Controller.RouteNames.EditName, new { @id = entity.Id });
+        }
+
+        /// <summary>
+        /// Return details path for given model.
+        /// </summary>
+        /// <param name="entity">The entity.</param>
+        /// <returns></returns>
+        public string ShowModelPath(IEntity entity)
+        {
+            return Url.Action(Controller.RouteNames.ShowName, new { @id = entity.Id });
+        }
+
+        /// <summary>
+        /// Return destroy path for given model.
+        /// </summary>
+        /// <param name="entity">The entity.</param>
+        /// <returns></returns>
+        public string DeleteModelPath(IEntity entity)
+        {
+            return Url.Action(Controller.RouteNames.DeleteName, new { @id = entity.Id });
         }
     }
 }

@@ -11,24 +11,16 @@ namespace Unicorn.Web.Mvc
     using Unicorn.Resources;
     using Unicorn.Web.Mvc.Configuration;
 
-    public class ApplicationController<T, TKey> : ApplicationController, IApplicationController
+    public class ApplicationController<T, TKey> : ApplicationController
        where T : class, IEntity<TKey>, new()
     {
         private IRepository<T, TKey> repository;        
 
-        public RouteNames RouteNames { get; private set; }
-
         public ApplicationController(IResourceManagerFactory resourceFactory, IRepository<T, TKey> repository)
             : base(resourceFactory)
-        {
-            this.RouteNames = new RouteNames();
+        {            
             this.repository = repository;
             this.repository.BeginTransaction();            
-        }
-
-        protected void SetRouteNames(Action<RouteNames> action)
-        {
-            action(this.RouteNames);
         }
 
         protected virtual dynamic LoadCollection(IFilter<T, TKey> filter)
@@ -113,7 +105,9 @@ namespace Unicorn.Web.Mvc
             {
                 try
                 {
-                    repository.Update(entity);
+                    T model = repository.GetById(id);
+                    model.UpdateAttributes(entity);
+                    repository.Update(model);
                     Flash.Success = ResourceManager.GetHtmlString("DataSuccessfullyUpdated");
                     return RedirectToDefaultUrl(entity);
                 }

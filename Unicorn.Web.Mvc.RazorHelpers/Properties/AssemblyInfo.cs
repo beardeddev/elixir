@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Unicorn.Resources")]
+[assembly: AssemblyTitle("Unicorn.Web.Mvc.RazorHelpers")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Unicorn.Resources")]
+[assembly: AssemblyProduct("Unicorn.Web.Mvc.RazorHelpers")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("46ba6942-5e51-4fca-9f97-7ab305f8ba7a")]
+[assembly: Guid("a5178153-b29d-49f9-885f-8b8dcce76725")]
 
 // Version information for an assembly consists of the following four values:
 //

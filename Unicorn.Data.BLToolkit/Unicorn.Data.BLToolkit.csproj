@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C196961B-54EB-4647-B980-80CF5529EF3A}</ProjectGuid>
+    <ProjectGuid>{1A5B2337-8463-48F0-B8EB-76BCA2A6DB71}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Unicorn.Resources</RootNamespace>
-    <AssemblyName>Unicorn.Resources</AssemblyName>
+    <RootNamespace>Unicorn.Data.BLToolkit</RootNamespace>
+    <AssemblyName>Unicorn.Data.BLToolkit</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BLToolkit.4">
+      <HintPath>..\packages\BLToolkit.4.1.15\lib\net40-full\BLToolkit.4.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,9 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IResourceManagerFactory.cs" />
+    <Compile Include="DbManagerFactory.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="IDbManagerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResourceManagerFactory.cs" />
+    <Compile Include="Repository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Unicorn.Data\Unicorn.Data.csproj">
+      <Project>{C41BB03B-45F5-48CC-BBA8-3A064225719B}</Project>
+      <Name>Unicorn.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Unicorn\Unicorn.csproj">
+      <Project>{D381E167-9C42-4E2B-B98B-D2095C594CA8}</Project>
+      <Name>Unicorn</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -77,10 +77,6 @@
       <Project>{D381E167-9C42-4E2B-B98B-D2095C594CA8}</Project>
       <Name>Unicorn %28Unicorn\Unicorn%29</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Unicorn.Resources\Unicorn.Resources.csproj">
-      <Project>{C196961B-54EB-4647-B980-80CF5529EF3A}</Project>
-      <Name>Unicorn.Resources</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

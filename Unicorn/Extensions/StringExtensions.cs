@@ -9,7 +9,7 @@ namespace Unicorn.Extensions
     /// <summary>
     /// Represents a class that extends string manipulation methods.
     /// </summary>
-    public static class StringHelper
+    public static class StringExtensions
     {
         /// <summary>
         /// Generate random string.
