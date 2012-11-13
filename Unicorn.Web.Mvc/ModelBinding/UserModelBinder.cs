@@ -11,7 +11,7 @@ namespace Unicorn.Web.Mvc.ModelBinding
 
     public abstract class UserModelBinder : EntityModelBinder
     {
-        protected abstract new object CreateModel(ControllerContext controllerContext, ModelBindingContext bindingContext, Type modelType);
+        protected abstract new IUser CreateModel(ControllerContext controllerContext, ModelBindingContext bindingContext, Type modelType);
 
         public override object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
