@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elixir.Common", "Elixir.Common\Elixir.Common.csproj", "{49FB06C4-7DC9-488F-891C-A1A77D125BDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elixir.Web.Mvc", "Elixir.Web.Mvc\Elixir.Web.Mvc.csproj", "{CA5987D2-88C4-462C-AAF3-F7695FC6AD81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elixir.Data", "Elixir.Data\Elixir.Data.csproj", "{F51DF04E-5725-4751-8F15-38E9A246C5BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49FB06C4-7DC9-488F-891C-A1A77D125BDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49FB06C4-7DC9-488F-891C-A1A77D125BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49FB06C4-7DC9-488F-891C-A1A77D125BDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49FB06C4-7DC9-488F-891C-A1A77D125BDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA5987D2-88C4-462C-AAF3-F7695FC6AD81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA5987D2-88C4-462C-AAF3-F7695FC6AD81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA5987D2-88C4-462C-AAF3-F7695FC6AD81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA5987D2-88C4-462C-AAF3-F7695FC6AD81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F51DF04E-5725-4751-8F15-38E9A246C5BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F51DF04E-5725-4751-8F15-38E9A246C5BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F51DF04E-5725-4751-8F15-38E9A246C5BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F51DF04E-5725-4751-8F15-38E9A246C5BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
