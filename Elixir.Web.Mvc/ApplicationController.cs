@@ -3,14 +3,17 @@ using System.Web.Mvc;
 using RestfulRouting.Format;
 using System.Resources;
 
-using Elixir.Web.Mvc.Factories;
-
 using RestfulRouting;
 
 namespace Elixir.Web.Mvc
 {
+    using Elixir.Web.Mvc.Factories;
+    using Elixir.Web.Mvc.Components;
+
     public abstract class ApplicationController : Controller
     {
+        protected Flash Flash { get; private set; }
+
         public RouteNames RouteNames { get; private set; }
         
         public ResourceManager ResourceManager { get; set; }
@@ -19,6 +22,7 @@ namespace Elixir.Web.Mvc
         {
             this.ResourceManager = factory.GetResourceManager();
             this.RouteNames = new RouteNames();
+            this.Flash = new Flash(this.TempData);
         }
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)

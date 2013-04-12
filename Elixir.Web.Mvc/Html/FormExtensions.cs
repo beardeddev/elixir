@@ -25,11 +25,12 @@ namespace Elixir.Web.Mvc.Html
         /// <returns>An opening &lt;form&gt; tag. </returns>
         public static MvcForm BeginFormForModel(this HtmlHelper htmlHelper, IEntity model, IDictionary<string, object> htmlAttributes)
         {
-            RouteNames routeNames = new RestfulRouting.RouteNames();
+            RouteNames routeNames = new RouteNames();
             if (htmlHelper.ViewContext.Controller is ApplicationController)
             {
                 routeNames = ((ApplicationController)htmlHelper.ViewContext.Controller).RouteNames;
             }
+
             UrlHelper url = new UrlHelper(htmlHelper.ViewContext.RequestContext);
             
             string actionName = model.IsNew ? routeNames.CreateName : routeNames.UpdateName;
@@ -56,11 +57,24 @@ namespace Elixir.Web.Mvc.Html
             return new MvcForm(htmlHelper.ViewContext);
         }
 
+        /// <summary>
+        /// Writes an opening <form> tag to the response. When the user submits the form, the request will be processed by an action method.
+        /// </summary>
+        /// <param name="htmlHelper">The HTML helper.</param>
+        /// <param name="model">The model.</param>
+        /// <param name="htmlAttributes">The HTML attributes.</param>
+        /// <returns>An opening &lt;form&gt; tag. </returns>
         public static MvcForm BeginFormForModel(this HtmlHelper htmlHelper, IEntity model, object htmlAttributes)
         {
             return BeginFormForModel(htmlHelper, model, (IDictionary<string, object>)HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         }
 
+        /// <summary>
+        /// Writes an opening <form> tag to the response. When the user submits the form, the request will be processed by an action method.
+        /// </summary>
+        /// <param name="htmlHelper">The HTML helper.</param>
+        /// <param name="model">The model.</param>
+        /// <returns>An opening &lt;form&gt; tag. </returns>
         public static MvcForm BeginFormForModel(this HtmlHelper htmlHelper, IEntity model)
         {
             return BeginFormForModel(htmlHelper, model, new Dictionary<string, object>());

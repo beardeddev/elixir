@@ -30,7 +30,7 @@ namespace Elixir.Data.Abstractions
         /// Initializes a new instance of the <see cref="RepositoryBase{TKey}" /> class.
         /// </summary>
         /// <param name="manager">The manager.</param>
-        public RepositoryBase(IDbContextManager manager)
+        public RepositoryBase(IDbManager manager)
             : base(manager)
         {
         }

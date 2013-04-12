@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elixir.Web.Mvc", "Elixir.We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elixir.Data", "Elixir.Data\Elixir.Data.csproj", "{F51DF04E-5725-4751-8F15-38E9A246C5BC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elixir.Framework", "Elixir.Framework", "{1BCEB3C3-8229-40F3-95EC-A5EAF64D48FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elixir.Extension", "Elixir.Extension", "{89567050-F1BF-4D96-8F09-1CA079A2689C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exlixir.Tests", "Exlixir.Tests", "{592ED3CD-E01A-421B-8AC8-52C36D662515}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,5 +34,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{49FB06C4-7DC9-488F-891C-A1A77D125BDB} = {1BCEB3C3-8229-40F3-95EC-A5EAF64D48FE}
+		{F51DF04E-5725-4751-8F15-38E9A246C5BC} = {1BCEB3C3-8229-40F3-95EC-A5EAF64D48FE}
+		{CA5987D2-88C4-462C-AAF3-F7695FC6AD81} = {1BCEB3C3-8229-40F3-95EC-A5EAF64D48FE}
 	EndGlobalSection
 EndGlobal

@@ -62,8 +62,8 @@
     <Compile Include="Contracts\ITimestampable.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Filter.cs" />
-    <Compile Include="Fluent\DbContextManager.cs" />
-    <Compile Include="Fluent\IDbContextManager.cs" />
+    <Compile Include="Fluent\DbManager.cs" />
+    <Compile Include="Fluent\IDbManager.cs" />
     <Compile Include="Mapping\TimestampAttribute.cs" />
     <Compile Include="Packages\Dapper\SqlMapper.cs" />
     <Compile Include="PagedCollection.cs" />

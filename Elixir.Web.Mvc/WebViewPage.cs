@@ -10,6 +10,7 @@ namespace Elixir.Web.Mvc
 {
     using Elixir.Web.Mvc.Html;
     using Elixir.Web.Mvc.Factories;
+    using Elixir.Web.Mvc.Components;
 
     /// <summary>
     /// 
@@ -24,6 +25,11 @@ namespace Elixir.Web.Mvc
         /// The page meta.
         /// </value>
         protected PageMeta Meta { get; private set; }
+
+        /// <summary>
+        /// Gets the flash.
+        /// </summary>
+        protected Flash Flash { get; private set; }
 
         private IResourceManagerFactory resourceManagerFactory;
         /// <summary>
@@ -51,9 +57,9 @@ namespace Elixir.Web.Mvc
         /// <summary>
         /// Initializes a new instance of the <see cref="WebViewPage{TModel}" /> class.
         /// </summary>
-        /// <param name="factory">The factory.</param>
         public WebViewPage()
-        {            
+        {
+            this.Flash = new Flash(this.TempData);
         }
 
         /// <summary>
@@ -83,6 +89,13 @@ namespace Elixir.Web.Mvc
             return (MvcHtmlString)this.ResourceManagerFactory.GetResourceManager().GetHtmlString(name);
         }
 
+        /// <summary>
+        /// Gets the translation of the resource with the specified name according to condition.
+        /// </summary>
+        /// <param name="condition">if set to <c>true</c> [condition].</param>
+        /// <param name="trueKey">The true key.</param>
+        /// <param name="falseKey">The false key.</param>
+        /// <returns>Translated resource.</returns>
         public MvcHtmlString _(bool condition, string trueKey, string falseKey)
         {
             return condition ? _(trueKey) : _(falseKey);

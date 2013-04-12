@@ -43,9 +43,6 @@
     <Reference Include="FluentValidation">
       <HintPath>..\packages\FluentValidation.3.4.6.0\lib\Net40\FluentValidation.dll</HintPath>
     </Reference>
-    <Reference Include="MvcFlash.Core">
-      <HintPath>..\packages\MvcFlash.1.0.0\lib\MvcFlash.Core.dll</HintPath>
-    </Reference>
     <Reference Include="RestfulRouting">
       <HintPath>..\packages\RestfulRouting.1.4.2\lib\RestfulRouting.dll</HintPath>
     </Reference>
@@ -89,10 +86,10 @@
   <ItemGroup>
     <Compile Include="ApplicationController.cs" />
     <Compile Include="ApplicationController`.cs" />
-    <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Components\Flash.cs" />
     <Compile Include="ElixirViewEngine.cs" />
     <Compile Include="Extensions\ResourceManagerExtensions.cs" />
-    <Compile Include="Extensions\ResourceNotFoundException.cs" />
+    <Compile Include="ResourceNotFoundException.cs" />
     <Compile Include="Factories\AutofacValidatorFactory.cs" />
     <Compile Include="Factories\IResourceManagerFactory.cs" />
     <Compile Include="Factories\ResourceManagerFactory.cs" />
@@ -110,10 +107,7 @@
     <Compile Include="WebViewPage.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Views\Shared\Flash.cshtml" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Elixir.Common\Elixir.Common.csproj">
@@ -127,14 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ActionFilters\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\flash\custom.png" />
-    <Content Include="Content\flash\error.png" />
-    <Content Include="Content\flash\notice.png" />
-    <Content Include="Content\flash\style.css" />
-    <Content Include="Content\flash\success.png" />
-    <Content Include="Content\flash\warning.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
