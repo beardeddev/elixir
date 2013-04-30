@@ -18,7 +18,7 @@ namespace Elixir.Common
         /// <param name="targetType">Type of the target.</param>
         /// <returns></returns>
         public static object GetValue(this object value, Type targetType)
-        {
+        {            
             return Convert.ChangeType(value, targetType);
         }
 

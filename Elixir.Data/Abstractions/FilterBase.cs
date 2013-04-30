@@ -66,6 +66,5 @@ namespace Elixir.Data.Abstractions
             get { return _params; }
             set { _params = value; }
         }
-
     }
 }

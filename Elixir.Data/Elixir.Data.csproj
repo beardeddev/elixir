@@ -46,7 +46,9 @@
     <Compile Include="Abstractions\EntityBase`.cs" />
     <Compile Include="Abstractions\FilterBase.cs" />
     <Compile Include="Abstractions\ReadOnlyRepositoryBase.cs" />
-    <Compile Include="Abstractions\RepositoryBase.cs" />
+    <Compile Include="Abstractions\RepositoryBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Abstractions\RepositoryBase`.cs" />
     <Compile Include="Contracts\IEntity.cs" />
     <Compile Include="Contracts\IEntity`.cs" />
