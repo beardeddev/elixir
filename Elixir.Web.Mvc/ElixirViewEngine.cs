@@ -8,6 +8,9 @@ namespace Elixir.Web.Mvc
 {
     public class ElixirViewEngine : RazorViewEngine
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ElixirViewEngine"/> class.
+        /// </summary>
         public ElixirViewEngine()
         {
             this.AreaMasterLocationFormats = new string[2] 

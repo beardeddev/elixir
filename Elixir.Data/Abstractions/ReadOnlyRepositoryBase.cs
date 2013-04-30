@@ -42,7 +42,7 @@ using Elixir.Data.Fluent;
         /// <value>
         /// The db manager.
         /// </value>
-        public IDbContextManager DbManager { get; private set; }
+        public IDbManager DbManager { get; private set; }
         #endregion
 
         #region Ctor
@@ -57,10 +57,10 @@ using Elixir.Data.Fluent;
                 throw new ArgumentNullException("connection");
             }
 
-            this.DbManager = new DbContextManager(connection);
+            this.DbManager = new DbManager(connection);
         }
 
-        public ReadOnlyRepositoryBase(IDbContextManager manager)
+        public ReadOnlyRepositoryBase(IDbManager manager)
         {
             if (manager == null)
             {

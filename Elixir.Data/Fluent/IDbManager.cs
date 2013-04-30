@@ -7,10 +7,10 @@ namespace Elixir.Data.Fluent
 {
     using Elixir.Data.Packages.Dapper;
     
-    public interface IDbContextManager
+    public interface IDbManager
     {
         #region Fluent
-        IDbContextManager AddParameter(string name, object value, DbType dbType, ParameterDirection direction, int size);
+        IDbManager AddParameter(string name, object value, DbType dbType, ParameterDirection direction, int size);
         void BeginTransaction();
         void BeginTransaction(IsolationLevel IsolationLevel);
         void CommitTransaction();
@@ -27,10 +27,10 @@ namespace Elixir.Data.Fluent
         IDataReader ExecuteReader(CommandBehavior behavior);
         IDictionary Parameters { get; }
         void RollbackTransaction();
-        IDbContextManager SetCommand(string commandText);
-        IDbContextManager SetCommand(string commandText, object parameters);
-        IDbContextManager SetSpCommand(string commandText);
-        IDbContextManager SetSpCommand(string commandText, object parameters);
+        IDbManager SetCommand(string commandText);
+        IDbManager SetCommand(string commandText, object parameters);
+        IDbManager SetSpCommand(string commandText);
+        IDbManager SetSpCommand(string commandText, object parameters);
         IDbTransaction Transaction { get; } 
         #endregion
     }

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-using MvcFlash.Core;
-
 namespace Elixir.Web.Mvc
 {
+    using Elixir.Web.Mvc.Components;
     using Elixir.Web.Mvc.Factories;
     using Elixir.Web.Mvc.ModelBinding;
     using Elixir.Data.Contracts;

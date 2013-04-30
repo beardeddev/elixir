@@ -26,7 +26,7 @@ namespace Elixir.Data.Abstractions
         {
         }
 
-        public RepositoryBase(IDbContextManager manager)
+        public RepositoryBase(IDbManager manager)
             : base(manager)
         {
 

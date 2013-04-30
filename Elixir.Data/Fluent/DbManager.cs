@@ -14,7 +14,7 @@ namespace Elixir.Data.Fluent
     /// <summary>
     /// 
     /// </summary>
-    public class DbContextManager : IDbContextManager
+    public class DbManager : IDbManager
     {
         private bool _Disposed;
         private DynamicParameters _Parameters;
@@ -54,10 +54,10 @@ namespace Elixir.Data.Fluent
         public IDbCommand DbCommand { get; private set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DbContextManager"/> class.
+        /// Initializes a new instance of the <see cref="DbManager"/> class.
         /// </summary>
         /// <param name="connection">The connection.</param>
-        public DbContextManager(IDbConnection connection)
+        public DbManager(IDbConnection connection)
         {
             if (connection == null)
             {
@@ -116,7 +116,7 @@ namespace Elixir.Data.Fluent
         /// </summary>
         /// <param name="commandText">The command text.</param>
         /// <returns></returns>
-        public virtual IDbContextManager SetCommand(string commandText)
+        public virtual IDbManager SetCommand(string commandText)
         {
             this.DbCommand.CommandText = commandText;
             this.DbCommand.CommandType = CommandType.Text;
@@ -129,7 +129,7 @@ namespace Elixir.Data.Fluent
         /// </summary>
         /// <param name="commandText">The command text.</param>
         /// <returns></returns>
-        public virtual IDbContextManager SetSpCommand(string commandText)
+        public virtual IDbManager SetSpCommand(string commandText)
         {
             this.DbCommand.CommandText = commandText;
             this.DbCommand.CommandType = CommandType.StoredProcedure;
@@ -142,7 +142,7 @@ namespace Elixir.Data.Fluent
         /// <param name="commandText">The command text.</param>
         /// <param name="parameters">The parameters.</param>
         /// <returns></returns>
-        public virtual IDbContextManager SetCommand(string commandText, object parameters)
+        public virtual IDbManager SetCommand(string commandText, object parameters)
         {
             this._Parameters = this.CreateParameters(parameters);
             return SetCommand(commandText);
@@ -154,7 +154,7 @@ namespace Elixir.Data.Fluent
         /// <param name="commandText">The command text.</param>
         /// <param name="parameters">The parameters.</param>
         /// <returns></returns>
-        public virtual IDbContextManager SetSpCommand(string commandText, object parameters)
+        public virtual IDbManager SetSpCommand(string commandText, object parameters)
         {
             this._Parameters = this.CreateParameters(parameters);
             return SetSpCommand(commandText);
@@ -264,7 +264,7 @@ namespace Elixir.Data.Fluent
         /// <param name="direction">The direction.</param>
         /// <param name="size">The size.</param>
         /// <returns></returns>
-        public virtual IDbContextManager AddParameter(string name, object value, DbType dbType, ParameterDirection direction, int size)
+        public virtual IDbManager AddParameter(string name, object value, DbType dbType, ParameterDirection direction, int size)
         {
             this._Parameters.Add(name, value, dbType, direction, size);
             return this;
@@ -304,9 +304,9 @@ namespace Elixir.Data.Fluent
 
         /// <summary>
         /// Releases unmanaged resources and performs other cleanup operations before the
-        /// <see cref="DbContextManager"/> is reclaimed by garbage collection.
+        /// <see cref="DbManager"/> is reclaimed by garbage collection.
         /// </summary>
-        ~DbContextManager()
+        ~DbManager()
         {
             Dispose(false);
         } 
