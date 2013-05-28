@@ -7,7 +7,6 @@ using System.Data;
 namespace Elixir.Data.Abstractions
 {
     using Elixir.Data.Contracts;
-    using Elixir.Data.Fluent;
 
     /// <summary>
     /// 
@@ -23,15 +22,6 @@ namespace Elixir.Data.Abstractions
         /// <param name="connection">The connection.</param>
         public RepositoryBase(IDbConnection connection)
             : base(connection)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RepositoryBase{TKey}" /> class.
-        /// </summary>
-        /// <param name="manager">The manager.</param>
-        public RepositoryBase(IDbManager manager)
-            : base(manager)
         {
         }
 

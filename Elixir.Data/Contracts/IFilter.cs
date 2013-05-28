@@ -31,7 +31,7 @@ namespace Elixir.Data.Contracts
         /// <value>
         /// The params.
         /// </value>
-        IDictionary<string, object> Params { get; set; }
+        dynamic Params { get; set; }
 
         /// <summary>
         /// Gets or sets the order by.
@@ -39,6 +39,6 @@ namespace Elixir.Data.Contracts
         /// <value>
         /// The order by.
         /// </value>
-        IDictionary<string, bool> OrderBy { get; set; }
+        dynamic OrderBy { get; set; }
     }
 }

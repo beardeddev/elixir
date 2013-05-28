@@ -6,7 +6,7 @@ using System.Text;
 namespace Elixir.Data.Contracts
 {
     public interface IRepository<TEntity> : IReadOnlyRepository<TEntity>
-        where TEntity : class, IEntity, new()
+        where TEntity : class, new()
     {
         /// <summary>
         /// Begins the transaction.
@@ -26,9 +26,9 @@ namespace Elixir.Data.Contracts
         /// <summary>
         /// Gets the entity by primary keys.
         /// </summary>
-        /// <param name="keys">The primary keys.</param>
-        /// <returns>The entity with given primary keys.</returns>
-        TEntity GetById(params object[] keys);
+        /// <param name="id">The primary key.</param>
+        /// <returns>The entity with given primary key.</returns>
+        TEntity GetById(dynamic id);
 
         /// <summary>
         /// Inserts the specified entity.

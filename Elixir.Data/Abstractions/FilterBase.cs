@@ -41,30 +41,20 @@ namespace Elixir.Data.Abstractions
             set { pageSize = value; }
         }
 
-        private IDictionary<string, bool> orderBy = new Dictionary<string, bool>();
         /// <summary>
         /// Gets or sets the order by.
         /// </summary>
         /// <value>
         /// The order by.
         /// </value>
-        public IDictionary<string, bool> OrderBy
-        {
-            get { return orderBy; }
-            set { orderBy = value; }
-        }
+        public dynamic OrderBy { get; set; }
 
-        private IDictionary<string, object> _params = new Dictionary<string, object>();
         /// <summary>
         /// Gets or sets the params.
         /// </summary>
         /// <value>
         /// The params.
         /// </value>
-        public IDictionary<string, object> Params
-        {
-            get { return _params; }
-            set { _params = value; }
-        }
+        public dynamic Params { get; set; }
     }
 }

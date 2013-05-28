@@ -7,14 +7,12 @@ using System.Data;
 namespace Elixir.Data.Abstractions
 {
     using Elixir.Data.Contracts;
-    using Elixir.Data.Fluent;
-
     /// <summary>
     /// 
     /// </summary>
     /// <typeparam name="TEntity">The type of the entity.</typeparam>
     public abstract class RepositoryBase<TEntity> : ReadOnlyRepositoryBase<TEntity>, IRepository<TEntity>
-        where TEntity : class, IEntity, new()
+        where TEntity : class, new()
     {
         #region Ctor
         /// <summary>
@@ -25,50 +23,36 @@ namespace Elixir.Data.Abstractions
             : base(connection)
         {
         }
-
-        public RepositoryBase(IDbManager manager)
-            : base(manager)
-        {
-
-        }
         #endregion
 
         #region IRepository members
         /// <summary>
         /// Begins the transaction.
         /// </summary>
-        public virtual void BeginTransaction()
-        {
-            this.BeginTransaction(IsolationLevel.Unspecified);
-        }
+        public abstract void BeginTransaction();
 
-        public virtual void BeginTransaction(IsolationLevel level)
-        {
-            this.DbManager.BeginTransaction(level);
-        }
+        /// <summary>
+        /// Begins the transaction.
+        /// </summary>
+        /// <param name="level">The level.</param>
+        public abstract void BeginTransaction(IsolationLevel level);
 
         /// <summary>
         /// Rollbacks the transaction.
         /// </summary>
-        public virtual void RollbackTransaction()
-        {
-            this.DbManager.RollbackTransaction();
-        }
+        public abstract void RollbackTransaction();
 
         /// <summary>
         /// Commits the transaction.
         /// </summary>
-        public virtual void CommitTransaction()
-        {
-            this.DbManager.CommitTransaction();
-        }
-
+        public abstract void CommitTransaction();
+        
         /// <summary>
-        /// Gets the entity by primary keys.
+        /// Gets the by id.
         /// </summary>
-        /// <param name="keys">The primary keys.</param>
-        /// <returns>The entity with given primary keys.</returns>
-        public abstract TEntity GetById(params object[] keys);
+        /// <param name="id">The id.</param>
+        /// <returns></returns>
+        public abstract TEntity GetById(dynamic id);
 
         /// <summary>
         /// Inserts the specified entity.

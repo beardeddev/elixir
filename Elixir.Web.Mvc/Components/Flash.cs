@@ -14,7 +14,6 @@ namespace Elixir.Web.Mvc.Components
     /// </summary>
     public class Flash : IEnumerable<KeyValuePair<string, object>>
     {
-        private static readonly string tagName = "div";
         private static readonly object flashKeyPrefix = new object();
         private IDictionary<string, object> flashBag;
 

@@ -17,6 +17,6 @@ namespace Elixir.Data.Contracts
         /// <value>
         /// The id.
         /// </value>
-        TKey Id { get; set; }
+        new TKey Id { get; set; }
     }
 }

@@ -18,22 +18,21 @@ namespace Elixir.Data.Contracts
         /// </summary>
         /// <returns>A list of entities.</returns>
         IEnumerable<TEntity> GetAll();
-
-
+        
         /// <summary>
         /// Gets the specified parameters.
         /// </summary>
         /// <param name="parameters">The parameters.</param>
         /// <param name="orderBy">The order by.</param>
         /// <returns></returns>
-        IEnumerable<TEntity> Get<TEntity>(object parameters, object orderBy);
+        IEnumerable<TEntity> Get(dynamic parameters, dynamic orderBy);
 
         /// <summary>
         /// Gets the specified order by.
         /// </summary>
         /// <param name="orderBy">The order by.</param>
         /// <returns></returns>
-        IEnumerable<TEntity> Get<TEntity>(object orderBy);
+        IEnumerable<TEntity> Get(dynamic orderBy);
 
         /// <summary>
         /// Gets the paged.

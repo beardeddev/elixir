@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using System.Collections;
 
 namespace Elixir.Data.Abstractions
 {
     using Elixir.Data.Contracts;
-using Elixir.Data.Fluent;
-    using System.Collections;
-
+    
     /// <summary>
     /// 
     /// </summary>
@@ -28,21 +27,8 @@ using Elixir.Data.Fluent;
         /// <value>
         /// The connection.
         /// </value>
-        public IDbConnection Connection 
-        {
-            get
-            {
-                return this.DbManager.DbConnection;
-            }
-        }
-
-        /// <summary>
-        /// Gets the db manager.
-        /// </summary>
-        /// <value>
-        /// The db manager.
-        /// </value>
-        public IDbManager DbManager { get; private set; }
+        public IDbConnection Connection { get; private set; }
+        
         #endregion
 
         #region Ctor
@@ -57,17 +43,7 @@ using Elixir.Data.Fluent;
                 throw new ArgumentNullException("connection");
             }
 
-            this.DbManager = new DbManager(connection);
-        }
-
-        public ReadOnlyRepositoryBase(IDbManager manager)
-        {
-            if (manager == null)
-            {
-                throw new ArgumentNullException("manager");
-            }
-
-            this.DbManager = manager;
+            this.Connection = connection;
         }
         #endregion
 
@@ -127,7 +103,7 @@ using Elixir.Data.Fluent;
         /// <param name="parameters">The parameters.</param>
         /// <param name="orderBy">The order by.</param>
         /// <returns></returns>
-        public abstract IEnumerable<TEntity> Get<TEntity>(object parameters, object orderBy);
+        public abstract IEnumerable<TEntity> Get(dynamic parameters, dynamic orderBy);
 
         /// <summary>
         /// Gets the specified order by.
@@ -135,7 +111,7 @@ using Elixir.Data.Fluent;
         /// <typeparam name="TEntity">The type of the entity.</typeparam>
         /// <param name="orderBy">The order by.</param>
         /// <returns></returns>
-        public abstract IEnumerable<TEntity> Get<TEntity>(object orderBy);
+        public abstract IEnumerable<TEntity> Get(dynamic orderBy);
 
         /// <summary>
         /// Gets a slice of entities from the data store.
