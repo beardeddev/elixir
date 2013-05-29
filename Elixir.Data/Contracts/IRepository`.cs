@@ -24,7 +24,7 @@ namespace Elixir.Data.Contracts
         /// Saves the specified entity.
         /// </summary>
         /// <param name="entity">The entity.</param>
-        /// <returns>The identity of the inserted entity.</returns>
+        /// <returns>The inserted entity.</returns>
         TEntity Save(TEntity entity);
 
         /// <summary>

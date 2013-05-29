@@ -97,23 +97,6 @@ namespace Elixir.Data.Abstractions
         public abstract IEnumerable<TEntity> GetAll();
 
         /// <summary>
-        /// Gets the specified parameters.
-        /// </summary>
-        /// <typeparam name="TEntity">The type of the entity.</typeparam>
-        /// <param name="parameters">The parameters.</param>
-        /// <param name="orderBy">The order by.</param>
-        /// <returns></returns>
-        public abstract IEnumerable<TEntity> Get(dynamic parameters, dynamic orderBy);
-
-        /// <summary>
-        /// Gets the specified order by.
-        /// </summary>
-        /// <typeparam name="TEntity">The type of the entity.</typeparam>
-        /// <param name="orderBy">The order by.</param>
-        /// <returns></returns>
-        public abstract IEnumerable<TEntity> Get(dynamic orderBy);
-
-        /// <summary>
         /// Gets a slice of entities from the data store.
         /// </summary>
         /// <param name="filter">The filter.</param>

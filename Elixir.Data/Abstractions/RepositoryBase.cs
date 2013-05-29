@@ -46,12 +46,12 @@ namespace Elixir.Data.Abstractions
         /// Commits the transaction.
         /// </summary>
         public abstract void CommitTransaction();
-        
+
         /// <summary>
-        /// Gets the by id.
+        /// Gets the entity by primary key.
         /// </summary>
-        /// <param name="id">The id.</param>
-        /// <returns></returns>
+        /// <param name="id">The primary key.</param>
+        /// <returns>The entity with given primary key.</returns>
         public abstract TEntity GetById(dynamic id);
 
         /// <summary>
