@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 
-namespace Sophist.Web.Mvc.Scaffolding
+namespace Sophist.Data
 {
     /// <summary>
     /// 

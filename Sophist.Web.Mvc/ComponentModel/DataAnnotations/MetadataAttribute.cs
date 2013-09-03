@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace Sophist.Web.Mvc.DataAnnotations
+namespace Sophist.ComponentModel.DataAnnotations
 {
     public abstract class MetadataAttribute : Attribute
     {

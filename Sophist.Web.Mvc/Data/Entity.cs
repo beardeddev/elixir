@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sophist.Web.Mvc.Scaffolding
+namespace Sophist.Data
 {
-    using Sophist.Web.Mvc.DataAnnotations;
+    using Sophist.ComponentModel.DataAnnotations;
 
     public abstract class Entity<TKey> : IEntity<TKey>
     {

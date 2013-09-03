@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace Sophist.Web.Mvc
 {
-    using Sophist.Web.Mvc.DataAnnotations;
+    using Sophist.ComponentModel.DataAnnotations;
 
     public class SophistModelMetadataProvider : DataAnnotationsModelMetadataProvider
     {

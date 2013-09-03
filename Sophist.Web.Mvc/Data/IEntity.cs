@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sophist.Web.Mvc.Scaffolding
+namespace Sophist.Data
 {
     public interface IEntity
     {

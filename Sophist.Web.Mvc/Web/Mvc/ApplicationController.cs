@@ -9,7 +9,7 @@ using RestfulRouting;
 
 namespace Sophist.Web.Mvc
 {
-    using Sophist.Web.Mvc.Resources;
+    using Sophist.Resources;
     
     public abstract class ApplicationController : Controller
     {

@@ -5,7 +5,7 @@ using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using Sophist.Web.Mvc.Resources;
+using Sophist.Resources;
 
 namespace Sophist.Web.Mvc
 {    

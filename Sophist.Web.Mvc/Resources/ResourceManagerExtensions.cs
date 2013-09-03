@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Sophist.Web.Mvc.Resources
+namespace Sophist.Resources
 {
     using Sophist.Web.Mvc.Html;
 

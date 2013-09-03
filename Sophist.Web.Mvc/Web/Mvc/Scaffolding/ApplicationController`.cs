@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Sophist.Web.Mvc
+namespace Sophist.Web.Mvc.Scaffolding
 {    
     using Sophist.Web.Mvc;
-    using Sophist.Web.Mvc.Scaffolding;
-    using Sophist.Web.Mvc.Resources;
+    using Sophist.Data;
+    using Sophist.Resources;
     
     public abstract class ApplicationController<T, TKey> : ApplicationController
         where T : class, IEntity<TKey>, new()

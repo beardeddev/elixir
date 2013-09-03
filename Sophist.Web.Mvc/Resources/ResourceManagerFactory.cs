@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Resources;
 
-namespace Sophist.Web.Mvc.Resources
+namespace Sophist.Resources
 {
     public class ResourceManagerFactory : IResourceManagerFactory
     {

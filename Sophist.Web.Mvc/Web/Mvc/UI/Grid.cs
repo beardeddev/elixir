@@ -8,17 +8,18 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
+using Sophist.Data;
 
 namespace Sophist.Web.Mvc.UI
 {
     public class Grid : IHtmlString
     {
         private readonly IEnumerable items;
-        private readonly ViewContext context;
+        private readonly UrlHelper urlHelper;
         private ModelMetadata modelMetadata;
         private ModelMetadata[] fields;
         private IDictionary<string, object> attributes;
-        private Type viewModelType;
+        private Type entityType;
 
         public Grid(IEnumerable items, ViewContext context, IDictionary<string, object> attributes)
         {
@@ -33,9 +34,10 @@ namespace Sophist.Web.Mvc.UI
             }
 
             this.items = items;
-            this.context = context;
+            this.urlHelper = new UrlHelper(context.RequestContext);
             this.attributes = attributes ?? new Dictionary<string, object>();
-            this.modelMetadata = ModelMetadataProviders.Current.GetMetadataForType(null, this.items.GetType().GetGenericArguments()[0]);
+            this.entityType = this.items.GetType().GetGenericArguments()[0];
+            this.modelMetadata = ModelMetadataProviders.Current.GetMetadataForType(null, this.entityType);
 
             object showInGrid = (object)false;
             this.fields = modelMetadata.Properties.Where(
@@ -70,9 +72,12 @@ namespace Sophist.Web.Mvc.UI
             writer.RenderBeginTag(HtmlTextWriterTag.Thead);
             writer.RenderBeginTag(HtmlTextWriterTag.Tr);
 
-            //writer.RenderBeginTag(HtmlTextWriterTag.Th);
-            //writer.WriteLine("<input type=\"checkbox\" name=\"check-all\" id=\"check-all\" />");
-            //writer.RenderEndTag();
+            if (typeof(IEntity).IsAssignableFrom(entityType))
+            {
+                writer.RenderBeginTag(HtmlTextWriterTag.Th);
+                writer.WriteLine("<input type=\"checkbox\" name=\"check-all\" id=\"check-all\" />");
+                writer.RenderEndTag();
+            }
 
             foreach (ModelMetadata field in fields)
             {
@@ -99,9 +104,12 @@ namespace Sophist.Web.Mvc.UI
 
         public virtual void RenderRow(HtmlTextWriter writer, object item)
         {
-            //writer.RenderBeginTag(HtmlTextWriterTag.Td);
-            //writer.WriteLine("<input type=\"checkbox\" name=\"check-id\" id=\"check-id\" value=\"{0}\" />", item.Id);
-            //writer.RenderEndTag();
+            if (typeof(IEntity).IsAssignableFrom(entityType))
+            {
+                writer.RenderBeginTag(HtmlTextWriterTag.Td);
+                writer.WriteLine("<input type=\"checkbox\" name=\"check-id\" id=\"check-id\" value=\"{0}\" />", ((IEntity)item).Id);
+                writer.RenderEndTag();
+            }
 
             foreach (ModelMetadata field in fields)
             {

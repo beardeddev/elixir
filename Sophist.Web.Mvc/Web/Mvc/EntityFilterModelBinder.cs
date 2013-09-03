@@ -1,4 +1,4 @@
-﻿using Sophist.Web.Mvc.Scaffolding;
+﻿using Sophist.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
