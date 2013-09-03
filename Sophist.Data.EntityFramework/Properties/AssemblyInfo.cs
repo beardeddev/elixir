@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Sophist.Web.Mvc")]
+[assembly: AssemblyTitle("Sophist.Data.EntityFramework")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("SDL")]
-[assembly: AssemblyProduct("Sophist.Web.Mvc")]
-[assembly: AssemblyCopyright("Copyright © SDL 2013")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Sophist.Data.EntityFramework")]
+[assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("024cf281-38f4-4dc9-918d-8eeb85be680c")]
+[assembly: Guid("fa7f6807-4a42-4287-99d3-e72837bfcc40")]
 
 // Version information for an assembly consists of the following four values:
 //
