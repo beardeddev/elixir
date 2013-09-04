@@ -12,6 +12,15 @@ namespace Sophist.Data
 
     public abstract class Entity<TKey> : IEntity<TKey>
     {
+        private bool isNew = true;
+
+        [NotMapped, ScaffoldColumn(false), GridColumn(false)]
+        public virtual bool IsNew
+        {
+            get { return isNew; }
+            set { isNew = value; }
+        }
+
         public abstract TKey Id { get; set; }
 
         dynamic IEntity.Id
@@ -29,9 +38,6 @@ namespace Sophist.Data
         public virtual object ToUrlParams()
         {
             return new { @id = this.Id };
-        }
-
-        [NotMapped, ScaffoldColumn(false), GridColumn(false)]
-        public virtual bool IsNew { get; set; }
+        }        
     }
 }
