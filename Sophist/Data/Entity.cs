@@ -10,34 +10,15 @@ namespace Sophist.Data
 {
     using Sophist.ComponentModel.DataAnnotations;
 
-    public abstract class Entity<TKey> : IEntity<TKey>
+    public abstract class Entity<TKey> : EntityBase<TKey>
     {
         private bool isNew = true;
 
         [NotMapped, ScaffoldColumn(false), GridColumn(false)]
-        public virtual bool IsNew
+        public override bool IsNew
         {
             get { return isNew; }
             set { isNew = value; }
         }
-
-        public abstract TKey Id { get; set; }
-
-        dynamic IEntity.Id
-        {
-            get
-            {
-                return this.Id;
-            }
-            set
-            {
-                this.Id = (TKey)value;
-            }
-        }
-
-        public virtual object ToUrlParams()
-        {
-            return new { @id = this.Id };
-        }        
     }
 }

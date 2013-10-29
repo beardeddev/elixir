@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Collections;
 
 namespace Sophist.Data
-{
+{   
     /// <summary>
     /// 
     /// </summary>
-    public interface IFilter<T>
-        where T : IEntity
+    public interface IFilter
     {
         /// <summary>
         /// Gets or sets the index of the page.
@@ -26,14 +24,14 @@ namespace Sophist.Data
         /// The size of the page.
         /// </value>
         int PageSize { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the params.
         /// </summary>
         /// <value>
         /// The params.
         /// </value>
-        Func<T, bool> Where { get; set; }
+        dynamic Where { get; set; }
 
         /// <summary>
         /// Gets or sets the order by.
@@ -41,6 +39,6 @@ namespace Sophist.Data
         /// <value>
         /// The order by.
         /// </value>
-        Func<T, object> OrderBy { get; set; }
+        dynamic OrderBy { get; set; }
     }
 }

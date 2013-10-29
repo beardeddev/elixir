@@ -8,15 +8,10 @@ namespace Sophist.Data
     /// <summary>
     /// 
     /// </summary>
+    /// <typeparam name="T"></typeparam>
     /// <typeparam name="TKey">The type of the key.</typeparam>
-    public interface IEntity<TKey> : IEntity
+    public interface IEntity<T, TKey> : IEntity<TKey>
+        where T : IEntity<T, TKey>
     {
-        /// <summary>
-        /// Gets or sets the id.
-        /// </summary>
-        /// <value>
-        /// The id.
-        /// </value>
-        new TKey Id { get; set; }
     }
 }

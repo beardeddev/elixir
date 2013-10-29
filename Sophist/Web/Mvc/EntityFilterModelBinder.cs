@@ -1,5 +1,4 @@
-﻿using Sophist.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +7,8 @@ using System.Web.Mvc;
 
 namespace Sophist.Web.Mvc
 {
+    using Sophist.Data;
+
     public class EntityFilterModelBinder : DefaultModelBinder
     {
         /// <summary>

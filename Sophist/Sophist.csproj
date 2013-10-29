@@ -17,7 +17,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -25,7 +25,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;DAPPER_MAKE_PRIVATE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -48,7 +48,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Entity.cs" />
+    <Compile Include="Data\EntityBase.cs" />
+    <Compile Include="Data\EntityBase`.cs" />
+    <Compile Include="Data\Filter.cs" />
+    <Compile Include="Data\FilterBase.cs" />
+    <Compile Include="Data\IEntity.cs" />
+    <Compile Include="Data\IEntity`.cs" />
+    <Compile Include="Data\IEntity``.cs" />
+    <Compile Include="Data\IFilter.cs" />
+    <Compile Include="Data\IFilter`.cs" />
+    <Compile Include="Data\IFilter``.cs" />
+    <Compile Include="Data\IPagedCollection.cs" />
+    <Compile Include="Data\IPagedCollection`.cs" />
+    <Compile Include="Data\IReadOnlyRepository.cs" />
+    <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Data\IRepository`.cs" />
+    <Compile Include="Data\ITimestampable.cs" />
+    <Compile Include="Data\Mapping\EntityMap.cs" />
+    <Compile Include="Data\Mapping\EntityBuilder.cs" />
+    <Compile Include="Data\Mapping\Extensions.cs" />
+    <Compile Include="Data\Mapping\IEntityMap.cs" />
+    <Compile Include="Data\Mapping\IPropertyMap.cs" />
+    <Compile Include="Data\Mapping\KeyType.cs" />
+    <Compile Include="Data\Mapping\PropertyMap.cs" />
+    <Compile Include="Data\Mapping\TimestampAttribute.cs" />
+    <Compile Include="Data\PagedCollection.cs" />
+    <Compile Include="Data\ReadOnlyRepositoryBase.cs" />
+    <Compile Include="Data\Repository.cs" />
+    <Compile Include="Data\RepositoryBase.cs" />
+    <Compile Include="Data\RepositoryBase`.cs" />
+    <Compile Include="Data\RepositoryBase``.cs" />
+    <Compile Include="IO\FormattedTextWriter.cs" />
+    <Compile Include="IO\IFormattedTextWriter.cs" />
+    <Compile Include="IO\ISqlTextWriter.cs" />
+    <Compile Include="IO\SqlTextWriter.cs" />
     <Compile Include="Web\Mvc\ApplicationController.cs" />
+    <Compile Include="Web\Mvc\EntityModelBinder.cs" />
     <Compile Include="Web\Mvc\MapperExtensions.cs" />
     <Compile Include="Web\Mvc\Scaffolding\ApplicationController`.cs" />
     <Compile Include="Web\Mvc\DynamicFlashMessagesDictionary.cs" />
@@ -63,16 +99,7 @@
     <Compile Include="Resources\ResourceManagerExtensions.cs" />
     <Compile Include="Resources\ResourceManagerFactory.cs" />
     <Compile Include="Resources\ResourceNotFoundException.cs" />
-    <Compile Include="Data\Entity.cs" />
-    <Compile Include="Data\Filter.cs" />
     <Compile Include="ComponentModel\DataAnnotations\GridColumnAttribute.cs" />
-    <Compile Include="Data\IEntity.cs" />
-    <Compile Include="Data\IEntity`.cs" />
-    <Compile Include="Data\IFilter.cs" />
-    <Compile Include="Data\IPagedCollection.cs" />
-    <Compile Include="Data\IPagedCollection`.cs" />
-    <Compile Include="Data\IRepository.cs" />
-    <Compile Include="Data\PagedCollection.cs" />
     <Compile Include="ComponentModel\DataAnnotations\MetadataAttribute.cs" />
     <Compile Include="Web\Mvc\SophistModelMetadataProvider.cs" />
     <Compile Include="Web\Mvc\SophistViewEngine.cs" />
@@ -80,7 +107,7 @@
     <Compile Include="Web\Mvc\WebViewPage.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Helpers\" />
+    <Folder Include="Data\Sql\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

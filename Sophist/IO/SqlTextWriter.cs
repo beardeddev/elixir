@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sophist.Data
+namespace Sophist.IO
 {
-    public class Filter<T> : FilterBase<T>
-         where T : class, new()
+    public abstract class SqlTextWriterBase : FormattedTextWriter, ISqlTextWriter
     {
     }
 }

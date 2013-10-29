@@ -78,7 +78,7 @@ namespace Sophist.Web.Mvc.Scaffolding
             {
                 try
                 {
-                    entity = repository.Insert(entity);
+                    entity = repository.Save(entity);
                     Flash.Success = ResourceManager.GetString("Message_Save_Success");
                     return RedirectToDefaultUrl(entity);
                 }
@@ -105,7 +105,7 @@ namespace Sophist.Web.Mvc.Scaffolding
             {
                 try
                 {
-                    entity = repository.Update(entity);
+                    entity = repository.Save(entity);
                     Flash.Success = ResourceManager.GetString("Message_Save_Success");
                     return RedirectToDefaultUrl(entity);
                 }

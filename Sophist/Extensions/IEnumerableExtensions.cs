@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sophist.Web.Mvc.Extensions
+namespace Sophist.Extensions
 {
     public static class IEnumerableExtensions
     {
