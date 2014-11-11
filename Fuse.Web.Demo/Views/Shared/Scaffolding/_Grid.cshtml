@@ -1,0 +1,66 @@
+﻿@model System.Collections.IEnumerable
+@functions{
+    
+    int GetOrder(ModelMetadata metadata)
+    {
+        object order = 0;
+        if (metadata.AdditionalValues.TryGetValue("Order", out order))
+        {
+            return (int)order;
+        }
+
+        return int.MaxValue;
+    }
+    
+    bool GetShowInGrid(ModelMetadata metadata)
+    {
+        object showInGrid = false;
+        if(metadata.AdditionalValues.TryGetValue("ShowInGrid", out showInGrid))
+        {
+            return (bool)showInGrid;
+        }
+
+        return true;
+    }
+}
+
+@{
+    Type entityType = Model.GetType().GetGenericArguments()[0];
+    ModelMetadata modelMetadata = ModelMetadataProviders.Current.GetMetadataForType(null, entityType);
+    ModelMetadata[] properties = modelMetadata.Properties.Where(x => !x.IsComplexType && GetShowInGrid(x))
+            .OrderBy(x => GetOrder(x))
+            .ToArray();
+}
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                <input type="checkbox" name="check-all" id="check-all" />
+            </th>
+            @foreach (var prop in properties)
+            {
+                <th>@prop.GetDisplayName()</th>
+            }
+            <th>@Html.Resource("Common", "Action")</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        { 
+            <tr>
+                <td><input type="checkbox" name="check-item" id="check-item-@((IEntity)item).Id" value="@((IEntity)item).Id" /></td>
+                @foreach (var prop in properties)
+                {
+                    <td>@item.GetType().GetProperty(prop.PropertyName).GetValue(item)</td>
+                }                
+                <td>
+                    <div class="btn-group btn-group-sm">
+                        <a data-type="edit" href="@Url.Edit((IEntity)item)" class="label label-primary"><span class="glyphicon glyphicon-pencil"></span> @Html.Resource("Common", "Edit")</a>
+                        <a data-type="delete" href="@Url.Delete((IEntity)item)"  class="label label-danger"><span class="glyphicon glyphicon-trash"></span> @Html.Resource("Common", "Delete")</a>
+                        <a data-type="view" href="@Url.Show((IEntity)item)"  class="label label-info"><span class="glyphicon glyphicon-eye-open"></span> @Html.Resource("Common", "View")</a>
+                    </div>
+                </td>
+            </tr>        
+        }
+    </tbody>
+</table>

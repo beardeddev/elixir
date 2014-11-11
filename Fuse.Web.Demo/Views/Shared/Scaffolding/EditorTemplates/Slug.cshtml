@@ -1,0 +1,8 @@
+﻿<div class="input-append">
+  @Html.TextBox("", ViewData.TemplateInfo.FormattedModelValue, new Dictionary<string, object> { 
+        { "class", "input-xlarge form-cotrol" },
+        { "data-type", "slug" },
+        { "data-linked-input", "Title" }
+    })
+    <button class="btn" type="button" data-linked-input="@ViewData.TemplateInfo.GetFullHtmlFieldId("")" data-action="slugfy" ><i class="icon-repeat"></i></button>
+</div>

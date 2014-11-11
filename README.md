@@ -1,6 +1,5 @@
-sophist
+Fuse
 
 =======
 
-Sophist is full stack library with custom ORM, Scaffolding support, Resource Provider, UI components
-that target on simplify ASP.NET MVC common development task.
+Fuse is full library with target on scaffolding asp.net mvc applications and simplify ASP.NET MVC common development task.
