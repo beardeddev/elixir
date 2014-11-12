@@ -1,23 +1,19 @@
-﻿using System;
+﻿using Fuse.Data.Common;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Data.Entity;
-using System.Data.Entity.Core.Objects;
-using System.Data.Entity.Infrastructure;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Fuse.Data.Core
+namespace Fuse.Data.EntityFramework
 {
-    using Kame.Models;
-
-    public class Repository<T, TKey> : Fuse.Data.Core.IRepository<T,TKey>
+    public class Repository<T, TKey> : Fuse.Data.IRepository<T, TKey>
         where T : class, IEntity<TKey>
     {
-        private  bool disposed;
+        private bool disposed;
 
         protected DbContext DbContext { get; private set; }
 
@@ -29,14 +25,14 @@ namespace Fuse.Data.Core
             }
         }
 
-        public Repository(IDbConnection connection)
+        public Repository(DbContext context)
         {
-            if(connection == null)
+            if (context == null)
             {
-                throw new ArgumentNullException("connection");
+                throw new ArgumentNullException("context");
             }
 
-            this.DbContext = new BDDContext(connection);
+            this.DbContext = context;
         }
 
         public virtual T GetById(TKey id)

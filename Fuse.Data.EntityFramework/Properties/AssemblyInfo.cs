@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Fuse.Data.Core")]
+[assembly: AssemblyTitle("Fuse.Data.EntityFramework")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Fuse.Data.Core")]
-[assembly: AssemblyCopyright("Copyright © Beardeddev 2014")]
+[assembly: AssemblyProduct("Fuse.Data.EntityFramework")]
+[assembly: AssemblyCopyright("Copyright © beardeddev 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2cd64455-af28-42a2-b020-23ee5b10cb66")]
+[assembly: Guid("c6c71e35-c3d6-41e9-ba7c-a373d323bed8")]
 
 // Version information for an assembly consists of the following four values:
 //

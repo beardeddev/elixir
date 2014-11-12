@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{42BC2C88-C07E-41AC-9622-9FD5E9710CD9}</ProjectGuid>
+    <ProjectGuid>{375F1F99-68C6-437C-9BFF-B79C438394BF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Beardeddev.Data.Core</RootNamespace>
-    <AssemblyName>Beardeddev.Data.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>Fuse.Data.EntityFramework</RootNamespace>
+    <AssemblyName>Fuse.Data.EntityFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -41,16 +47,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity.cs" />
-    <Compile Include="Filter.cs" />
-    <Compile Include="IEntity.cs" />
-    <Compile Include="IEntity`.cs" />
-    <Compile Include="IFilter`.cs" />
-    <Compile Include="IPagedCollection.cs" />
-    <Compile Include="IPagedCollection`.cs" />
-    <Compile Include="IRepository.cs" />
-    <Compile Include="PagedCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fuse.ComponentModel.DataAnnotations\Fuse.ComponentModel.DataAnnotations.csproj">
+      <Project>{d6d0ffe5-6343-4480-ad92-aa7df454a52d}</Project>
+      <Name>Fuse.ComponentModel.DataAnnotations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fuse.Core\Fuse.Common.csproj">
+      <Project>{63af8c02-6bd0-47f2-981a-355cfc79142a}</Project>
+      <Name>Fuse.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fuse.Data.Common\Fuse.Data.Common.csproj">
+      <Project>{3db553f2-4d08-479a-b96f-c5ff20c9407a}</Project>
+      <Name>Fuse.Data.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fuse.Data\Fuse.Data.csproj">
+      <Project>{9fe7a02f-38f1-44c0-bef2-7ab5d9f4b67b}</Project>
+      <Name>Fuse.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
