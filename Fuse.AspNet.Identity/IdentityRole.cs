@@ -8,8 +8,16 @@ using System.Threading.Tasks;
 
 namespace Fuse.AspNet.Identity
 {
-    public class IdentityRole : Entity<int>, IRole<int>
+    public class IdentityRole : Entity<byte>, IRole<byte>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IdentityRole"/> class.
+        /// </summary>
+        public IdentityRole()
+            : this(null)
+        {
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentityRole"/> class.
         /// </summary>
@@ -25,7 +33,7 @@ namespace Fuse.AspNet.Identity
         /// <value>
         /// The identifier.
         /// </value>
-        public override int Id { get; set; }
+        public override byte Id { get; set; }
 
         /// <summary>
         /// Gets or sets the name.

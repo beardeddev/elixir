@@ -6,8 +6,8 @@ using System.Text;
 
 namespace Fuse.AspNet.Identity
 {
-    public interface IRolesRepository : IRepository<IdentityRole, int>
+    public interface IRolesRepository : IRepository<IdentityRole, byte>
     {
-        int GetRoleId(string roleName);
+        byte GetIdByName(string roleName);
     }
 }

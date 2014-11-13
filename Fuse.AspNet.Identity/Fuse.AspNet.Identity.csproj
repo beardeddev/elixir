@@ -45,8 +45,8 @@
     <Compile Include="IdentityRole.cs" />
     <Compile Include="IdentityUser.cs" />
     <Compile Include="IRolesRepository.cs" />
-    <Compile Include="IUsersClaimsRepository.cs" />
-    <Compile Include="IUsersLoginsRepository.cs" />
+    <Compile Include="IUserClaimsRepository.cs" />
+    <Compile Include="IUserLoginsRepository.cs" />
     <Compile Include="IUsersRepository.cs" />
     <Compile Include="IUsersRolesRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

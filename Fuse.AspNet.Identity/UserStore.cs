@@ -23,18 +23,18 @@ namespace Fuse.AspNet.Identity
         where TUser : IdentityUser
     {
         private IUsersRepository<TUser> usersRepository;
-        private IUsersLoginsRepository usersLoginsRepository;
-        private IUsersClaimsRepository usersClaimsRepository;
+        private IUserLoginsRepository userLoginsRepository;
+        private IUserClaimsRepository userClaimsRepository;
         private IUsersRolesRepository usersRolesRepository;
         private IRolesRepository rolesRepository;
 
-        public UserStore(IUsersRepository<TUser> userRepository, IUsersLoginsRepository userLoginsRepository,
-            IUsersClaimsRepository usersClaimsRepository, IUsersRolesRepository usersRolesRepository,
+        public UserStore(IUsersRepository<TUser> userRepository, IUserLoginsRepository userLoginsRepository,
+            IUserClaimsRepository userClaimsRepository, IUsersRolesRepository usersRolesRepository,
             IRolesRepository rolesRepository)
         {
             this.usersRepository = userRepository;
-            this.usersLoginsRepository = userLoginsRepository;
-            this.usersClaimsRepository = usersClaimsRepository;
+            this.userLoginsRepository = userLoginsRepository;
+            this.userClaimsRepository = userClaimsRepository;
             this.usersRolesRepository = usersRolesRepository;
             this.rolesRepository = rolesRepository;
         }
@@ -51,7 +51,7 @@ namespace Fuse.AspNet.Identity
                 throw new ArgumentNullException("login");
             }
 
-            this.usersLoginsRepository.Insert(user, login);
+            this.userLoginsRepository.Insert(user, login);
 
             return Task.FromResult<object>(null);
         }
@@ -63,7 +63,7 @@ namespace Fuse.AspNet.Identity
                 throw new ArgumentNullException("login");
             }
 
-            int userId = this.usersLoginsRepository.GetUserIdByLogin(login);
+            int userId = this.userLoginsRepository.GetUserIdByLogin(login);
             if (userId != 0)
             {
                 TUser user = this.usersRepository.GetById(userId);
@@ -83,7 +83,7 @@ namespace Fuse.AspNet.Identity
                 throw new ArgumentNullException("user");
             }
 
-            List<UserLoginInfo> logins = this.usersLoginsRepository.GetByUserId(user.Id);
+            List<UserLoginInfo> logins = this.userLoginsRepository.GetByUserId(user.Id);
             if (logins != null)
             {
                 return Task.FromResult<IList<UserLoginInfo>>(logins);
@@ -104,7 +104,7 @@ namespace Fuse.AspNet.Identity
                 throw new ArgumentNullException("login");
             }
 
-            this.usersLoginsRepository.Delete(user, login);
+            this.userLoginsRepository.Delete(user, login);
 
             return Task.FromResult<Object>(null);
         }
@@ -183,14 +183,14 @@ namespace Fuse.AspNet.Identity
                 throw new ArgumentNullException("user");
             }
 
-            this.usersClaimsRepository.Insert(claim, user.Id);
+            this.userClaimsRepository.Insert(claim, user.Id);
 
             return Task.FromResult<object>(null);
         }
 
         public Task<IList<Claim>> GetClaimsAsync(TUser user)
         {
-            ClaimsIdentity identity = this.usersClaimsRepository.GetByUserId(user.Id);
+            ClaimsIdentity identity = this.userClaimsRepository.GetByUserId(user.Id);
             return Task.FromResult<IList<Claim>>(identity.Claims.ToList());
         }
 
@@ -206,7 +206,7 @@ namespace Fuse.AspNet.Identity
                 throw new ArgumentNullException("claim");
             }
 
-            this.usersClaimsRepository.Delete(user.Id, claim);
+            this.userClaimsRepository.Delete(user.Id, claim);
 
             return Task.FromResult<object>(null);
         }
@@ -223,7 +223,7 @@ namespace Fuse.AspNet.Identity
                 throw new ArgumentException("Argument cannot be null or empty: roleName.");
             }
 
-            int roleId = this.rolesRepository.GetRoleId(roleName);
+            int roleId = this.rolesRepository.GetIdByName(roleName);
             if (roleId > 0)
             {
                 this.usersRolesRepository.Insert(user.Id, roleId);
@@ -293,11 +293,11 @@ namespace Fuse.AspNet.Identity
             if (this.usersRepository != null)
                 this.usersRepository.Dispose();
 
-            if (this.usersLoginsRepository != null)
-                this.usersLoginsRepository.Dispose();
+            if (this.userLoginsRepository != null)
+                this.userLoginsRepository.Dispose();
 
-            if (this.usersClaimsRepository != null)
-                this.usersClaimsRepository.Dispose();
+            if (this.userClaimsRepository != null)
+                this.userClaimsRepository.Dispose();
 
             if (this.usersRolesRepository != null)
                 this.usersRolesRepository.Dispose();
