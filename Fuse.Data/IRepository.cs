@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace Fuse.Data
 {
     public interface IRepository<T, TKey> : IDisposable
