@@ -15,6 +15,6 @@ namespace Fuse.AspNet.Identity
 
         List<UserLoginInfo> GetByUserId(int userId);
 
-        void Delete(object user, UserLoginInfo login);
+        int Delete(int userId, UserLoginInfo login);
     }
 }

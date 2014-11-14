@@ -7,9 +7,9 @@ namespace Fuse.AspNet.Identity
 {
     public interface IUsersRolesRepository : IDisposable
     {
-        void Insert(int userId, int roleId);
+        int Insert(int userId, int roleId);
         List<string> GetByUserId(int userId);
 
-        void Delete(int userId, string roleName);
+        int Delete(int userId, string roleName);
     }
 }

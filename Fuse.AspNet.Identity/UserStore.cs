@@ -104,7 +104,7 @@ namespace Fuse.AspNet.Identity
                 throw new ArgumentNullException("login");
             }
 
-            this.userLoginsRepository.Delete(user, login);
+            this.userLoginsRepository.Delete(user.Id, login);
 
             return Task.FromResult<Object>(null);
         }
@@ -311,7 +311,7 @@ namespace Fuse.AspNet.Identity
             if (user == null)
                 throw new ArgumentNullException("user");
 
-            string passwordHash = this.usersRepository.GetPasswordHashByUserId(user.Id);
+            string passwordHash = this.usersRepository.GetPasswordHashById(user.Id);
 
             return Task.FromResult<string>(passwordHash);
         }
@@ -321,7 +321,7 @@ namespace Fuse.AspNet.Identity
             if (user == null)
                 throw new ArgumentNullException("user");
 
-            bool hasPassword = !string.IsNullOrEmpty(this.usersRepository.GetPasswordHashByUserId(user.Id));
+            bool hasPassword = !string.IsNullOrEmpty(this.usersRepository.GetPasswordHashById(user.Id));
 
             return Task.FromResult<bool>(hasPassword);
         }

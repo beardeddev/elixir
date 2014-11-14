@@ -8,10 +8,10 @@ namespace Fuse.AspNet.Identity
 {
     public interface IUserClaimsRepository : IDisposable
     {
-        void Insert(Claim claim, int userId);
+        int Insert(Claim claim, int userId);
 
         ClaimsIdentity GetByUserId(int userId);
 
-        void Delete(int userId, Claim claim);
+        int Delete(int userId, Claim claim);
     }
 }

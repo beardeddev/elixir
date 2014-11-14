@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace Fuse.Data.Common
 {
-    public abstract class RepositoryBase<T, TKey> : IRepository<T, TKey>
-        where T : class, IEntity<TKey>, new()
+    public abstract class RepositoryBase
     {
         private bool disposed = false;
 
@@ -84,17 +83,7 @@ namespace Fuse.Data.Common
             }
 
             this.RollbackTransaction();
-        }
-
-        public abstract T Delete(T entity);
-
-        public abstract T GetById(TKey id);
-
-        public abstract IPagedCollection GetPaged(IFilter<T, TKey> filter);
-
-        public abstract T Insert(T entity);
-
-        public abstract T Update(T entity);
+        }       
 
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.

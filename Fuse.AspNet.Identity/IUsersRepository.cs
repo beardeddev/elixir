@@ -29,6 +29,6 @@ namespace Fuse.AspNet.Identity
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        string GetPasswordHashByUserId(int userId);
+        string GetPasswordHashById(int userId);
     }
 }
