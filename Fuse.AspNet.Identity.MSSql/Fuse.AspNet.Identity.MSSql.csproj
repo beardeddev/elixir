@@ -51,6 +51,7 @@
     <Compile Include="UserLoginsRepository.cs" />
     <Compile Include="UsersRepository.cs" />
     <Compile Include="UsersRolesRepository.cs" />
+    <Compile Include="UserStore.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fuse.AspNet.Identity\Fuse.AspNet.Identity.csproj">

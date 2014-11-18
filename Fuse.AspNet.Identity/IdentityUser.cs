@@ -11,15 +11,6 @@ namespace Fuse.AspNet.Identity
     public class IdentityUser : Entity<int>, IUser<int>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="IdentityUser"/> class.
-        /// </summary>
-        /// <param name="userName">Name of the user.</param>
-        public IdentityUser(string userName)
-        {
-            this.UserName = userName;
-        }
-
-        /// <summary>
         /// Gets or sets a value indicating whether this instance is new.
         /// </summary>
         /// <value>
